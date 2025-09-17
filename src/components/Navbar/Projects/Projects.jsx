@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import blogImg from "../../../assets/pro.png"; // replace with actual images
+import blogImg from "../../../assets/pro.png";
 import ytImg from "../../../assets/banner.png";
 import newsImg from "../../../assets/banner.png";
 import ecommerceImg from "../../../assets/banner.png";
@@ -12,11 +12,9 @@ const ProjectsInfo = [
       "A web application that enables multiple users to code together live.",
     tags: [
       "React",
-      "Node.js",
       "WebSocket",
-      "React Monaco Editor",
+      "React MonacoEditor",
       "Express.js",
-      "Piston API",
       "Render Cloud platform",
     ],
     demoLink: "https://realtime-code-editor-run.onrender.com",
