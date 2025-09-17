@@ -7,7 +7,7 @@ import ecommerceImg from "../../../assets/banner.png";
 
 const ProjectsInfo = [
   {
-    title: "AI-Powered Real-Time Collaborative Code Editor",
+    title: "Real-Time Collaborative Code Editor",
     description:
       "A web application that enables multiple users to code together live.",
     tags: [
