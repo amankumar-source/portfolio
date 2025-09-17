@@ -9,7 +9,7 @@ const ProjectsInfo = [
   {
     title: "AI-Powered Real-Time Collaborative Code Editor",
     description:
-      "A web application that enables multiple users to code together live, with instant synchronization, multi-language support, live code execution, and runtime input handling, enhancing teamwork and developer productivity.",
+      "A web application that enables multiple users to code together live.",
     tags: [
       "React",
       "Node.js",
