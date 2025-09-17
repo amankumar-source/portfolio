@@ -5,14 +5,14 @@ const ProjectCard = ({ title, description, tags, demoLink, codeLink, image }) =>
 
   return (
     <>
-      {/* Normal Card (taller with increased height) */}
+     
       <div
         className="group relative bg-[#0e0e1a] border border-white rounded-2xl overflow-hidden shadow-md hover:shadow-[0_0_25px_3px_rgba(130,69,236,0.6)] transition-all duration-300 flex flex-col cursor-pointer h-[550px]" // Increased height
         onClick={() => setIsOpen(true)}
       >
         {/* Project Image */}
         {image && (
-          <div className="w-full h-56 overflow-hidden"> {/* Bigger image */}
+          <div className="w-full h-56 overflow-hidden">
             <img
               src={image}
               alt={title}
@@ -43,9 +43,10 @@ const ProjectCard = ({ title, description, tags, demoLink, codeLink, image }) =>
       {/* Popup Modal */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 px-4">
-          <div className="relative bg-[#121224] rounded-3xl shadow-2xl w-full max-w-4xl p-8 animate-scaleUp border border-purple-700">
+          <div className="relative bg-[#121224] rounded-3xl shadow-2xl w-full max-w-4xl h-[90vh] sm:h-auto p-6 sm:p-8 animate-scaleUp border border-purple-700 flex flex-col justify-between">
+
             
-            {/* Close Button */}
+            
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold shadow-lg transition"
