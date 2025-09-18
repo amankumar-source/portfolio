@@ -91,7 +91,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-4">
           {/* Social Icons in mobile top bar */}
           <a
-            href="https://www.linkedin.com/in/aman-kumar-96806030a"
+            href="https://github.com/amankumar-source"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-xl hover:text-[#8245ec] transition"
@@ -99,7 +99,7 @@ const Navbar = () => {
             <FaGithub />
           </a>
           <a
-            href="https://github.com/amankumar-source"
+            href="https://www.linkedin.com/in/aman-kumar-96806030a"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-xl hover:text-[#8245ec] transition"
