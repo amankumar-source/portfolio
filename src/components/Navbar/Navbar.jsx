@@ -5,13 +5,13 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
 
-  // ✅ Smooth scroll when clicking nav item
+  
   const handleScroll = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
-    setMenu(false); // close mobile menu after click
+    setMenu(false); 
   };
 
   return (
@@ -91,7 +91,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center gap-4">
           {/* Social Icons in mobile top bar */}
           <a
-            href="https://github.com/your-username"
+            href="https://www.linkedin.com/in/aman-kumar-96806030a"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-xl hover:text-[#8245ec] transition"
@@ -99,7 +99,7 @@ const Navbar = () => {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/your-username"
+            href="https://github.com/amankumar-source"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-xl hover:text-[#8245ec] transition"
