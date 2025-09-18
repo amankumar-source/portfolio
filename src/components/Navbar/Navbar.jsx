@@ -70,7 +70,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-5 ml-10">
           
           <a
-            href="http://www.linkedin.com/in/aman-kumar-96806030a"
+            href="https://www.linkedin.com/in/aman-kumar-96806030a"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-2xl hover:text-[#8245ec] transition"
