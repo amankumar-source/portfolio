@@ -22,7 +22,7 @@ const ProjectsInfo = [
     image: blogImg,
   },
   {
-    title: "YouTube Clone",
+    title: "Task Manager App",
     description:
       "A video streaming app inspired by YouTube, using React and RapidAPI.",
     tags: ["React", "RapidAPI", "Tailwind", "VideoJS"],
