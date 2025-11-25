@@ -22,10 +22,10 @@ const ProjectsInfo = [
     image: blogImg,
   },
   {
-    title: "Task Manager App",
+    title: "Job Board and Recruitment Management System",
     description:
-      "A video streaming app inspired by YouTube, using React and RapidAPI.",
-    tags: ["React", "RapidAPI", "Tailwind", "VideoJS"],
+      "Fullstack Job Portal App using MERN stack for efficient job searching and recruitment.",
+    tags: ["React","Shadcn-ui","Nodejs","MongoDB","Tailwindcss", "Express"],
     demoLink: "#",
     codeLink: "#",
     image: ytImg,
