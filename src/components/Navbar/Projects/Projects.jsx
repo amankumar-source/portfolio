@@ -3,7 +3,6 @@ import ProjectCard from "./ProjectCard";
 import blogImg from "../../../assets/pro.png";
 import ytImg from "../../../assets/banner.png";
 import newsImg from "../../../assets/banner.png";
-import ecommerceImg from "../../../assets/banner.png";
 
 const ProjectsInfo = [
   {
@@ -11,16 +10,13 @@ const ProjectsInfo = [
     description:
       "A web application that enables multiple users to code together live.",
     tags: [
-<<<<<<< HEAD
       "React","WebSocket","Express.js",
       "React Monaco Editor","Render Cloud platform",
-=======
       "React",
       "WebSocket",
       "React MonacoEditor",
       "Express.js",
       "Render Cloud platform",
->>>>>>> d803580b34e5c8e9052e119b83d635973ee96fce
     ],
     demoLink: "https://realtime-code-editor-run.onrender.com",
     codeLink: "https://github.com/amankumar-source/realtime-code-editor-run",

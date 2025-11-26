@@ -44,13 +44,6 @@ const ProjectCard = ({ title, description, tags, demoLink, codeLink, image }) =>
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 px-4">
           <div className="relative bg-[#121224] rounded-3xl shadow-2xl w-full max-w-4xl h-[90vh] sm:h-auto p-6 sm:p-8 animate-scaleUp border border-purple-700 flex flex-col justify-between">
-
-<<<<<<< HEAD
-
-
-=======
-            
->>>>>>> d803580b34e5c8e9052e119b83d635973ee96fce
             
             <button
               onClick={() => setIsOpen(false)}
@@ -124,3 +117,6 @@ const ProjectCard = ({ title, description, tags, demoLink, codeLink, image }) =>
 };
 
 export default ProjectCard;
+
+
+
