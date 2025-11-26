@@ -1,28 +1,36 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import blogImg from "../../../assets/pro.png"; // replace with actual images
+import blogImg from "../../../assets/pro.png";
 import ytImg from "../../../assets/banner.png";
 import newsImg from "../../../assets/banner.png";
 import ecommerceImg from "../../../assets/banner.png";
 
 const ProjectsInfo = [
   {
-    title: "AI-Powered Real-Time Collaborative Code Editor",
+    title: "Real-Time Collaborative Code Editor",
     description:
       "A web application that enables multiple users to code together live.",
     tags: [
+<<<<<<< HEAD
       "React","WebSocket","Express.js",
       "React Monaco Editor","Render Cloud platform",
+=======
+      "React",
+      "WebSocket",
+      "React MonacoEditor",
+      "Express.js",
+      "Render Cloud platform",
+>>>>>>> d803580b34e5c8e9052e119b83d635973ee96fce
     ],
     demoLink: "https://realtime-code-editor-run.onrender.com",
     codeLink: "https://github.com/amankumar-source/realtime-code-editor-run",
     image: blogImg,
   },
   {
-    title: "YouTube Clone",
+    title: "Job Board and Recruitment Management System",
     description:
-      "A video streaming app inspired by YouTube, using React and RapidAPI.",
-    tags: ["React", "RapidAPI", "Tailwind", "VideoJS"],
+      "Fullstack Job Portal App using MERN stack for efficient job searching and recruitment.",
+    tags: ["React","Shadcn-ui","Nodejs","MongoDB","Tailwindcss", "Express"],
     demoLink: "#",
     codeLink: "#",
     image: ytImg,
