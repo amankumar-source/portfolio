@@ -3,6 +3,12 @@ import React, { useState, useRef, useEffect } from "react";
 // Certification data
 const CertificationsInfo = [
   {
+    title: "The MERN Stack & FSD - Infosys Certification",
+    description:
+      "Certificate awarded for successfully completing the MERN Stack & Full Stack Development course form infosys Springboard.",
+    imgSrc: "/certifications/fsd.png",
+  },
+  {
     title:
       "Software Development Career Training - iHUB DivyaSampark IIT Roorkee",
     description:
