@@ -43,7 +43,10 @@ const ProjectCard = ({ title, description, tags, demoLink, codeLink, image }) =>
       {/* Popup Modal */}
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 px-4">
-          <div className="relative bg-[#121224] rounded-3xl shadow-2xl w-full max-w-4xl p-8 animate-scaleUp border border-purple-700">
+          <div className="relative bg-[#121224] rounded-3xl shadow-2xl w-full max-w-4xl h-[90vh] sm:h-auto p-6 sm:p-8 animate-scaleUp border border-purple-700 flex flex-col justify-between">
+
+
+
             
             {/* Close Button */}
             <button

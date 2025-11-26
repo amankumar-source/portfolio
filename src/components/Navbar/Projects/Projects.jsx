@@ -9,15 +9,10 @@ const ProjectsInfo = [
   {
     title: "AI-Powered Real-Time Collaborative Code Editor",
     description:
-      "A web application that enables multiple users to code together live, with instant synchronization, multi-language support, live code execution, and runtime input handling, enhancing teamwork and developer productivity.",
+      "A web application that enables multiple users to code together live.",
     tags: [
-      "React",
-      "Node.js",
-      "WebSocket",
-      "React Monaco Editor",
-      "Express.js",
-      "Piston API",
-      "Render Cloud platform",
+      "React","WebSocket","Express.js",
+      "React Monaco Editor","Render Cloud platform",
     ],
     demoLink: "https://realtime-code-editor-run.onrender.com",
     codeLink: "https://github.com/amankumar-source/realtime-code-editor-run",

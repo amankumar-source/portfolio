@@ -51,7 +51,7 @@ const Home = () => {
 
                 {/* Resume Preview */}
                 <iframe
-                  src="/amancvv.pdf"
+                  src="/Aman-Resume.pdf"
                   title="Resume Preview"
                   className="w-full flex-1 rounded-lg border"
                 />
@@ -59,7 +59,7 @@ const Home = () => {
                 {/* Download Button Centered */}
                 <div className="mt-4 flex justify-center">
                   <a
-                    href="/amancvv.pdf"
+                    href="/Aman-Resume.pdf"
                     download
                     className="px-6 py-2 bg-[#465697] text-white rounded-lg font-semibold hover:opacity-90 hover:scale-105 transition"
                   >
