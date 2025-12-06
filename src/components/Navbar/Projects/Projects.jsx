@@ -11,11 +11,8 @@ const ProjectsInfo = [
       "A web application that enables multiple users to code together live.",
     tags: [
       "React","WebSocket","Express.js",
-      "React Monaco Editor","Render Cloud platform",
-      "React",
-      "WebSocket",
       "React MonacoEditor",
-      "Express.js",
+      "TailwindCss",
       "Render Cloud platform",
     ],
     demoLink: "https://realtime-code-editor-run.onrender.com",
