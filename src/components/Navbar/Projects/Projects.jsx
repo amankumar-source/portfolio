@@ -23,9 +23,9 @@ const ProjectsInfo = [
     title: "Job Board and Recruitment Management System",
     description:
       "Fullstack Job Portal App using MERN stack for efficient job searching and recruitment.",
-    tags: ["React","Shadcn-ui","Nodejs","MongoDB","Tailwindcss", "Express"],
+    tags: ["React","Shadcn-ui","Nodejs","MongoDB","Tailwindcss", "Express","Redux"],
     demoLink: "#",
-    codeLink: "#",
+    codeLink: "https://github.com/amankumar-source/JobBoard-Recruitment-System",
     image: ytImg,
   },
   {
