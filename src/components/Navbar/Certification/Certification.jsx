@@ -3,6 +3,13 @@ import React, { useState, useRef, useEffect } from "react";
 // Certification data
 const CertificationsInfo = [
   {
+    title:
+      "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+    description:
+      "Certification awarded by Oracle University for passing the OCI 2025 AI Foundations Associate exam, validating core AI and OCI AI services knowledge.",
+    imgSrc: "/certifications/oracle.jpg",
+  },
+  {
     title: "The MERN Stack & FSD - Infosys Certification",
     description:
       "Certificate awarded for successfully completing the MERN Stack & Full Stack Development course form infosys Springboard.",

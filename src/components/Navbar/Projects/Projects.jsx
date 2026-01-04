@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
 import blogImg from "../../../assets/pro.png";
-import ytImg from "../../../assets/banner.png";
+import jobImg from "../../../assets/job.png";
 import newsImg from "../../../assets/banner.png";
 
 const ProjectsInfo = [
@@ -26,7 +26,7 @@ const ProjectsInfo = [
     tags: ["React","Shadcn-ui","Nodejs","MongoDB","Tailwindcss", "Express","Redux"],
     demoLink: "#",
     codeLink: "https://github.com/amankumar-source/JobBoard-Recruitment-System",
-    image: ytImg,
+    image: jobImg,
   },
   {
     title: "News Website",
