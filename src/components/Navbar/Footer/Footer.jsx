@@ -46,7 +46,7 @@ const Footer = () => {
         </nav>
 
         {/* Social Media Icons - Responsive */}
-        <div className="flex flex-wrap justify-center space-x-8 mt-6">
+        <div className="flex flex-wrap justify-center gap-6 mt-6">
           {[
             {
               icon: <FaLinkedin />,

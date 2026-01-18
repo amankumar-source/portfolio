@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import blogImg from "../../../assets/project1.jpg";
+import blogImg from "../../../assets/project1.png";
 import jobImg from "../../../assets/job.png";
 import newsImg from "../../../assets/banner.png";
 
