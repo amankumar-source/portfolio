@@ -24,7 +24,7 @@ const ProjectsInfo = [
     description:
       "Fullstack Job Portal App using MERN stack for efficient job searching and recruitment.",
     tags: ["React","Shadcn-ui","Nodejs","MongoDB","Tailwindcss", "Express","Redux"],
-    demoLink: "#",
+    demoLink: "https://job-board-recruitment-system.vercel.app",
     codeLink: "https://github.com/amankumar-source/JobBoard-Recruitment-System",
     image: jobImg,
   },
