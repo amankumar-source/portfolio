@@ -2,7 +2,7 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import blogImg from "../../../assets/project1.png";
 import jobImg from "../../../assets/job.png";
-import newsImg from "../../../assets/banner.png";
+import ClarityImg from "../../../assets/clarity.png";
 
 const ProjectsInfo = [
   {
@@ -10,7 +10,9 @@ const ProjectsInfo = [
     description:
       "A web application that enables multiple users to code together live.",
     tags: [
-      "React","WebSocket","Express.js",
+      "React",
+      "WebSocket",
+      "Express.js",
       "React MonacoEditor",
       "TailwindCss",
       "Render Cloud platform",
@@ -23,19 +25,36 @@ const ProjectsInfo = [
     title: "Job Board and Recruitment Management System",
     description:
       "Fullstack Job Portal App using MERN stack for efficient job searching and recruitment.",
-    tags: ["React","Shadcn-ui","Nodejs","MongoDB","Tailwindcss", "Express","Redux"],
+    tags: [
+      "React",
+      "Shadcn-ui",
+      "Nodejs",
+      "MongoDB",
+      "Tailwindcss",
+      "Express",
+      "Redux",
+    ],
     demoLink: "https://job-board-recruitment-system.vercel.app",
     codeLink: "https://github.com/amankumar-source/JobBoard-Recruitment-System",
     image: jobImg,
   },
   {
-    title: "News Website",
+    title: "Clarity AI",
     description:
-      "A news aggregator built with React and NewsAPI to fetch live articles.",
-    tags: ["React", "NewsAPI", "Tailwind", "JavaScript"],
-    demoLink: "#",
-    codeLink: "#",
-    image: newsImg,
+      "An AI-powered web app that converts overthinking and complex thoughts into a single clear, actionable sentence using modern LLMs.",
+    tags: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "Railway",
+      "Vercel",
+      "LLM API",
+    ],
+    demoLink: "https://clarityai-app.vercel.app",
+    codeLink: "https://github.com/amankumar-source/Clarity-AI-",
+    image: ClarityImg,
   },
 ];
 
