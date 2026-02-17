@@ -3,7 +3,9 @@ import ProjectCard from "./ProjectCard";
 import blogImg from "../../../assets/project1.png";
 import jobImg from "../../../assets/job.png";
 import ClarityImg from "../../../assets/clarity.png";
+import ToyVerseImg from "../../../assets/toy.png";
 import AiImg from "../../../assets/banner.png";
+
 const ProjectsInfo = [
   {
     title: "Real-Time Collaborative Code Editor",
@@ -56,6 +58,26 @@ const ProjectsInfo = [
     codeLink: "https://github.com/amankumar-source/Clarity-AI-",
     image: ClarityImg,
   },
+  {
+  title: "ToyVerse – Animated Toy",
+  description:
+    "A motion-first, interactive toy e-commerce experience built with React, featuring physics-driven animations, custom cursor interactions, animated toy visuals, mini-games, and a playful yet premium UI designed for a 2026-standard frontend portfolio.",
+  tags: [
+    "React",
+    "Vite",
+    "GSAP",
+    "Framer Motion",
+    "Three.js",
+    "React Three Fiber",
+    "Web Animations",
+    "UI/UX Design",
+    "Performance Optimization",
+  ],
+  demoLink: "https://toy-verse-alpha.vercel.app/",
+  codeLink: "https://github.com/amankumar-source/ToyVerse",
+  image: ToyVerseImg,
+},
+
   {
     title: "AI Workflow Orchestration Platform",
     description:
