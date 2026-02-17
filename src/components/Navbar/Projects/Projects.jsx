@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 import blogImg from "../../../assets/project1.png";
 import jobImg from "../../../assets/job.png";
 import ClarityImg from "../../../assets/clarity.png";
-
+import AiImg from "../../../assets/banner.png";
 const ProjectsInfo = [
   {
     title: "Real-Time Collaborative Code Editor",
@@ -55,6 +55,26 @@ const ProjectsInfo = [
     demoLink: "https://clarityai-app.vercel.app",
     codeLink: "https://github.com/amankumar-source/Clarity-AI-",
     image: ClarityImg,
+  },
+  {
+    title: "AI Workflow Orchestration Platform",
+    description:
+      "An enterprise-grade platform for designing, executing, and monitoring AI-powered workflows using LLMs, background jobs, and real-time system observability.",
+    tags: [
+      "React",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "LLM APIs",
+      "CI/CD",
+      "System Design",
+    ],
+    demoLink: "#",
+    codeLink: "#",
+    image: AiImg,
   },
 ];
 
