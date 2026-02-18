@@ -61,7 +61,7 @@ const ProjectsInfo = [
   {
   title: "ToyVerse",
   description:
-    "A motion-first interactive toy e-commerce platform built with React, featuring physics-based animations, custom cursor interactions, animated toy visuals, and engaging mini-games for an immersive user experience",
+    "Motion-first toy e-commerce platform with interactive animations and mini-games",
   tags: [
     "React",
     "Vite",
@@ -80,7 +80,7 @@ const ProjectsInfo = [
   {
     title: "AI Workflow Orchestration Platform",
     description:
-      "An enterprise-grade platform for designing, executing, and monitoring AI-powered workflows, leveraging LLMs, background job processing, and real-time system observability",
+      "Enterprise AI platform for building, running, and monitoring LLM workflows",
     tags: [
       "React",
       "Node.js",
