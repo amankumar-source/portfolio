@@ -8,9 +8,11 @@ import Footer from './components/Navbar/Footer/Footer'
 import Certifications from './components/Navbar/Certification/Certification'
 import Experience from './components/Navbar/Experience/Experience'
 
+
+
 function App() {
   return (
-    <div className='bg-[#171d32] h-auto w-full overflow-hidden'>
+    <div className='bg-[#171d32] min-h-screen w-full'>
      
      <Navbar/>
      <Home/>

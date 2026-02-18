@@ -59,9 +59,9 @@ const ProjectsInfo = [
     image: ClarityImg,
   },
   {
-  title: "ToyVerse – Animated Toy",
+  title: "ToyVerse",
   description:
-    "A motion-first, interactive toy e-commerce experience built with React, featuring physics-driven animations, custom cursor interactions, animated toy visuals, mini-games, and a playful yet premium UI designed for a 2026-standard frontend portfolio.",
+    "A motion-first interactive toy e-commerce platform built with React, featuring physics-based animations, custom cursor interactions, animated toy visuals, and engaging mini-games for an immersive user experience",
   tags: [
     "React",
     "Vite",
@@ -77,11 +77,10 @@ const ProjectsInfo = [
   codeLink: "https://github.com/amankumar-source/ToyVerse",
   image: ToyVerseImg,
 },
-
   {
     title: "AI Workflow Orchestration Platform",
     description:
-      "An enterprise-grade platform for designing, executing, and monitoring AI-powered workflows using LLMs, background jobs, and real-time system observability.",
+      "An enterprise-grade platform for designing, executing, and monitoring AI-powered workflows, leveraging LLMs, background job processing, and real-time system observability",
     tags: [
       "React",
       "Node.js",

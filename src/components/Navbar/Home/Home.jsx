@@ -17,14 +17,10 @@ const Home = () => {
           </span>
         </h1>
         <h1 className="mt-3 text-lg sm:text-xl md:text-2xl font-medium text-gray-300 tracking-wide ">
-          Final-Year B.Tech | Aspiring Software Engineer
+           B.Tech | Associate Software Engineer
         </h1>
         <p className="text-sm sm:text-base md:text-xl tracking-tight text-gray-300 leading-relaxed mt-4">
-          I’m a software engineer in the making, passionate about building
-          modern, scalable, and user-centric applications. With hands-on
-          experience in the MERN stack and strong problem-solving skills in
-          Java, I bring a balance of full-stack development expertise and clean
-          code practices.
+          I am an Associate Software Engineer passionate about building modern, scalable, and user-centric applications. With hands-on experience in the MERN stack and strong problem-solving skills in Java, I bring a solid foundation in full-stack development along with a focus on writing clean, maintainable code.
         </p>
 
         <div className="mt-6 flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-3 sm:gap-6">

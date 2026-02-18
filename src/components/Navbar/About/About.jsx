@@ -67,10 +67,7 @@ const About = () => {
             Career Goals
           </h1>
           <p className="text-sm md:text-md leading-tight">
-            Currently in the final year of B.Tech (CSE), aspiring to work as a
-            Software Engineer where I can leverage my full-stack skills,
-            problem-solving mindset, and continuous learning attitude to
-            contribute to impactful projects.
+            B.Tech (CSE) graduate currently working as an Associate Software Engineer, leveraging full-stack development skills, strong problem-solving abilities, and a continuous learning mindset to build scalable and impactful software solutions.
           </p>
         </div>
       </li>
