@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 import certificate from "../../assets/intern.png";
 import eygdsLogo from "../../assets/ey.png";
 import aicteLogo from "../../assets/aicte.png";
@@ -23,6 +24,19 @@ const Experience = () => {
 
   const openCert = useCallback(() => setShowCert(true), []);
   const closeCert = useCallback(() => setShowCert(false), []);
+
+  // Lock body scroll and handle Escape key when modal is open
+  useEffect(() => {
+    if (!showCert) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e) => e.key === "Escape" && closeCert();
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [showCert, closeCert]);
 
   return (
     <section id="experience" className="py-16 md:py-24 px-4 sm:px-6 md:px-16 lg:px-24 font-sans w-full overflow-hidden">
@@ -85,36 +99,39 @@ const Experience = () => {
         </div>
       </div>
 
-      {/* Certificate Modal */}
-      {showCert && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Internship Certificate"
-          className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4"
-          onClick={closeCert}
-        >
+      {/* Certificate Modal — rendered via Portal at document.body to escape overflow/transform stacking contexts */}
+      {showCert &&
+        createPortal(
           <div
-            className="relative max-w-4xl w-full p-4 sm:p-6 bg-gray-900 rounded-2xl shadow-2xl animate-scaleIn"
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Internship Certificate"
+            className="fixed inset-0 bg-black/80 flex justify-center items-center z-[9999] p-4"
+            style={{ top: 0, left: 0, right: 0, bottom: 0 }}
+            onClick={closeCert}
           >
-            <div className="flex justify-end mb-4">
-              <button
-                onClick={closeCert}
-                aria-label="Close certificate"
-                className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-lg transition"
-              >
-                Close
-              </button>
+            <div
+              className="relative max-w-4xl w-full p-4 sm:p-6 bg-gray-900 rounded-2xl shadow-2xl animate-scaleIn max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-end mb-4">
+                <button
+                  onClick={closeCert}
+                  aria-label="Close certificate"
+                  className="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-lg transition"
+                >
+                  Close
+                </button>
+              </div>
+              <img
+                src={certificate}
+                alt="Web Development Internship Certificate"
+                className="w-full h-auto rounded-xl border border-purple-500"
+              />
             </div>
-            <img
-              src={certificate}
-              alt="Web Development Internship Certificate"
-              className="w-full h-auto rounded-xl border border-purple-500"
-            />
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </section>
   );
 };
