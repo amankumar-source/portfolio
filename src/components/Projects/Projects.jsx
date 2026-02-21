@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProjectCard from "./ProjectCard";
-import blogImg from "../../../assets/project1.png";
-import jobImg from "../../../assets/job.png";
-import ClarityImg from "../../../assets/clarity.png";
-import ToyVerseImg from "../../../assets/toy.png";
-import AiImg from "../../../assets/banner.png";
+import blogImg from "../../assets/project1.png";
+import jobImg from "../../assets/job.png";
+import ClarityImg from "../../assets/clarity.png";
+import ToyVerseImg from "../../assets/toy.png";
+import AiImg from "../../assets/banner.png";
 
 const ProjectsInfo = [
   {
@@ -59,24 +59,24 @@ const ProjectsInfo = [
     image: ClarityImg,
   },
   {
-  title: "ToyVerse",
-  description:
-    "Motion-first toy e-commerce platform with interactive animations and mini-games",
-  tags: [
-    "React",
-    "Vite",
-    "GSAP",
-    "Framer Motion",
-    "Three.js",
-    "React Three Fiber",
-    "Web Animations",
-    "UI/UX Design",
-    "Performance Optimization",
-  ],
-  demoLink: "https://toy-verse-alpha.vercel.app/",
-  codeLink: "https://github.com/amankumar-source/ToyVerse",
-  image: ToyVerseImg,
-},
+    title: "ToyVerse",
+    description:
+      "Motion-first toy e-commerce platform with interactive animations and mini-games",
+    tags: [
+      "React",
+      "Vite",
+      "GSAP",
+      "Framer Motion",
+      "Three.js",
+      "React Three Fiber",
+      "Web Animations",
+      "UI/UX Design",
+      "Performance Optimization",
+    ],
+    demoLink: "https://toy-verse-alpha.vercel.app/",
+    codeLink: "https://github.com/amankumar-source/ToyVerse",
+    image: ToyVerseImg,
+  },
   {
     title: "AI Workflow Orchestration Platform",
     description:
@@ -100,10 +100,19 @@ const ProjectsInfo = [
 ];
 
 const Projects = () => {
+  useEffect(() => {
+    console.log(`
+      Component Name: Projects
+      What was not responsive: Mobile horizontal padding was set to relative viewport width (px-[8vw]), causing slightly inconsistent card constraints on extremely narrow screens.
+      What was changed to fix it: Switched px-[8vw] to a fixed readable px-6 padding for consistency on mobile devices, keeping md/lg values intact.
+      Affected screen sizes: Mobile.
+    `);
+  }, []);
+
   return (
     <section
       id="projects"
-      className="py-24 px-[8vw] md:px-[6vw] lg:px-[16vw] font-sans"
+      className="py-24 px-6 md:px-[6vw] lg:px-[16vw] font-sans overflow-hidden"
     >
       {/* Section Title */}
       <div className="text-center mb-12">

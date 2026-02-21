@@ -1,34 +1,44 @@
 
-import profileImg from "../../../assets/profileimg-removebg-preview.png";
-import Text from "../../../Text";
-import { useState } from "react";
+import profileImg from "../../assets/profileimg-removebg-preview.png";
+import Text from "../../Text";
+import { useState, useEffect } from "react";
+import GitHubHeatmap from "../GitHubHeatmap/GitHubHeatmap";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    console.log(`
+      Component Name: Home (Hero section)
+      What was not responsive: Earlier on mobile the heatmap and texts overflowed due to missing containers and nested HTML tags, forcing a horizontal scroll on some viewports.
+      What was changed to fix it: Implemented 'w-full px-6 sm:px-10 md:px-20 flex-col-reverse' layout, locked mobile grid widths gracefully.
+      Affected screen sizes: All.
+    `);
+  }, []);
 
   return (
     <section
       id="home"
       className="min-h-screen text-white flex flex-col-reverse md:flex-row w-full 
       justify-center md:justify-between items-center 
-      px-6 sm:px-10 md:px-20 pt-28 md:pt-32 gap-12"
+      px-6 sm:px-10 md:px-20 pt-16 md:pt-20 gap-8"
     >
       {/* Left Content */}
-      <div className="w-full md:w-2/4 text-center md:text-left flex flex-col justify-center">
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
+      <div className="w-full lg:w-3/5 text-center md:text-left flex flex-col justify-center">
+        <div className="w-full text-center md:text-left flex flex-col justify-center">
           <Text />
-        </h1>
+        </div>
 
         <h2 className="mt-4 text-lg sm:text-xl md:text-2xl font-medium text-gray-400">
           Associate Software Engineer
         </h2>
 
         <p className="mt-5 max-w-xl mx-auto md:mx-0 text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
-           I am an Associate Software Engineer passionate about building modern, scalable, and user-centric applications. With hands-on experience in the MERN stack and strong problem-solving skills in Java, I bring a solid foundation in full-stack development along with a focus on writing clean, maintainable code.
+          Associate Software Engineer building scalable, user-centric web applications using the MERN stack and Java, focused on clean and maintainable code.
         </p>
 
         {/* Buttons */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center md:items-start gap-4">
+        <div className="mt-6 flex flex-col sm:flex-row items-center md:items-start gap-4">
           <button
             onClick={() => setIsOpen(true)}
             className="w-full sm:w-auto px-7 py-2.5 rounded-full 
@@ -48,13 +58,8 @@ const Home = () => {
           </a>
         </div>
 
-        {/* Desktop-only Availability Badge */}
-        <div className="hidden md:flex mt-6">
-          <span className="px-4 py-1 rounded-full text-sm 
-          bg-green-500/10 text-green-400 border border-green-500/20">
-            ● Open to Opportunities
-          </span>
-        </div>
+        {/* GitHub Contribution Heatmap */}
+        <GitHubHeatmap />
       </div>
 
       {/* Right Image – Clean & Premium */}

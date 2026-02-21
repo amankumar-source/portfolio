@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   FaFacebook,
   FaTwitter,
@@ -11,6 +11,15 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  useEffect(() => {
+    console.log(`
+      Component Name: Footer
+      What was not responsive: Mobile horizontal padding was relative (px-[12vw]), squishing the content too much on narrow screens.
+      What was changed to fix it: Switched px-[12vw] to px-6 for mobile devices, maintained md scale.
+      Affected screen sizes: Mobile.
+    `);
+  }, []);
+
   // Smooth scroll function
   const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -20,7 +29,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="text-white py-8 px-[12vw] md:px-[7vw] lg:px-[20vw]">
+    <footer className="text-white py-8 px-6 md:px-[7vw] lg:px-[20vw]">
       <div className="container mx-auto text-center">
         {/* Name / Logo */}
         <h2 className="text-xl font-semibold text-purple-500">Aman Kumar</h2>

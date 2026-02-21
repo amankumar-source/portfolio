@@ -23,13 +23,17 @@ const Text = () => {
 
   return (
     <h1
-      className={`text-center transition-all duration-700 text-2xl md:text-6xl font-extrabold tracking-wide 
-        bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent
-        ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
-      `}
-    >
-      {texts[index]}
-    </h1>
+  className={`text-center sm:text-left
+    transition-all duration-700
+    text-3xl sm:text-5xl md:text-6xl
+    font-extrabold tracking-wide
+    bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500
+    bg-clip-text text-transparent
+    ${fade ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}
+  `}
+>
+  {texts[index]}
+</h1>
   );
 };
 

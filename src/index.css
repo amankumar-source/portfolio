@@ -10,3 +10,22 @@ html {
 body {
   overflow-x: hidden;
 }
+
+/* Custom Scrollbar for horizontal scrolling in Heatmap */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(30, 37, 60, 0.5);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(57, 211, 83, 0.5);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(57, 211, 83, 0.8);
+}

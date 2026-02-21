@@ -98,6 +98,15 @@ const Certifications = () => {
     }
   };
 
+  useEffect(() => {
+    console.log(`
+      Component Name: Certifications
+      What was not responsive: Modal dialog was potentially wider than mobile screens due to lack of w-full constraints and had insufficient padding limits. Close button would overlap small screens.
+      What was changed to fix it: Added w-full to the modal content container, responsive padding (p-4 md:p-6), and adjusted the close button to adapt for mobile (top-2 right-2). Added p-4 wrapper to avoid screen edge clipping.
+      Affected screen sizes: Mobile, Tablet.
+    `);
+  }, []);
+
   // Auto-scroll logic
   useEffect(() => {
     let observer;
@@ -118,7 +127,7 @@ const Certifications = () => {
                 // Detect if near the end - Allow a small threshold for precision
                 if (
                   scrollRef.current.scrollLeft +
-                    scrollRef.current.clientWidth >=
+                  scrollRef.current.clientWidth >=
                   scrollRef.current.scrollWidth - 2
                 ) {
                   // Pause scrolling, set resetting flag to true
@@ -142,7 +151,7 @@ const Certifications = () => {
 
                             if (
                               scrollRef.current.scrollLeft +
-                                scrollRef.current.clientWidth >=
+                              scrollRef.current.clientWidth >=
                               scrollRef.current.scrollWidth - 2
                             ) {
                               isResettingRef.current = true;
@@ -221,17 +230,17 @@ const Certifications = () => {
       {/* Modal with Stylish Animation */}
       {modalImg && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
           onClick={() => setModalImg(null)}
         >
           <div
-            className="bg-[#1f1f1f] p-6 rounded-2xl max-w-3xl max-h-[90vh] overflow-auto transform scale-0 opacity-0 transition-all duration-300 ease-out animate-scaleUp relative"
+            className="bg-[#1f1f1f] p-4 md:p-6 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-auto transform scale-0 opacity-0 transition-all duration-300 ease-out animate-scaleUp relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button shifted to top-right */}
             <button
               onClick={() => setModalImg(null)}
-              className="absolute top-1 right-3 bg-[#8245ec] text-white px-4 py-2 rounded-lg hover:bg-[#6939c6] transition-colors duration-300"
+              className="absolute top-2 right-2 md:top-4 md:right-4 bg-[#8245ec] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-sm hover:bg-[#6939c6] transition-colors duration-300"
             >
               Close
             </button>

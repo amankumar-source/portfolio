@@ -1,9 +1,18 @@
-import React, { useState } from "react";
-import certificate from "../../../assets/intern.png";
-import eygdsLogo from "../../../assets/ey.png";
-import aicteLogo from "../../../assets/aicte.png";
+import React, { useState, useEffect } from "react";
+import certificate from "../../assets/intern.png";
+import eygdsLogo from "../../assets/ey.png";
+import aicteLogo from "../../assets/aicte.png";
 const Experience = () => {
   const [showCert, setShowCert] = useState(false);
+
+  useEffect(() => {
+    console.log(`
+      Component Name: Experience
+      What was not responsive: Invalid 'max-w-1xl' class caused layout to span incorrectly on some devices, fixed padding on mobile which was too large (p-8).
+      What was changed to fix it: Changed to 'max-w-xl', added 'p-6 md:p-8' for adaptive padding.
+      Affected screen sizes: Mobile, Tablet.
+    `);
+  }, []);
 
   const experience = {
     role: "Web Development Intern",
@@ -20,43 +29,43 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-24 px-8 md:px-16 lg:px-24 font-sans">
+    <section id="experience" className="py-24 px-6 md:px-16 lg:px-24 font-sans w-full overflow-hidden">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold tracking-wide text-white"> EXPERIENCE</h2>
         <div className="w-32 h-1 bg-purple-500 mx-auto mt-4 rounded-full"></div>
       </div>
 
-      <div className="max-w-1xl mx-auto p-8 bg-gray-800 bg-opacity-80 rounded-3xl shadow-2xl border border-white">
-  
-  
-  <div className="flex justify-center items-center gap-6 mb-6 flex-wrap">
-  
-    {eygdsLogo && (
-      <img
-        src={eygdsLogo}
-        alt="EY GDS Logo"
-        className="h-20 md:h-24 object-contain rounded-xl border-2 border-purple-500 p-1 bg-white"
-      />
-    )}
+      <div className="max-w-xl w-full mx-auto p-6 md:p-8 bg-gray-800 bg-opacity-80 rounded-3xl shadow-2xl border border-white">
 
-    
-    {aicteLogo && (
-      <img
-        src={aicteLogo}
-        alt="AICTE Logo"
-        className="h-20 md:h-24 object-contain rounded-xl border-2 border-purple-500 p-1 bg-white"
-      />
-    )}
-  </div>
 
-        
+        <div className="flex justify-center items-center gap-6 mb-6 flex-wrap">
 
-      
+          {eygdsLogo && (
+            <img
+              src={eygdsLogo}
+              alt="EY GDS Logo"
+              className="h-20 md:h-24 object-contain rounded-xl border-2 border-purple-500 p-1 bg-white"
+            />
+          )}
+
+
+          {aicteLogo && (
+            <img
+              src={aicteLogo}
+              alt="AICTE Logo"
+              className="h-20 md:h-24 object-contain rounded-xl border-2 border-purple-500 p-1 bg-white"
+            />
+          )}
+        </div>
+
+
+
+
         <h3 className="text-2xl md:text-3xl font-bold text-center mb-2 text-white">{experience.role}</h3>
         <h4 className="text-center text-gray-300 font-medium mb-2">{experience.company}</h4>
         <p className="text-center text-gray-400 italic mb-4">{experience.date}</p>
 
-        
+
         <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4">
           {experience.desc.map((point, idx) => (
             <li key={idx}>{point}</li>

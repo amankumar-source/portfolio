@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import Tilt from "react-parallax-tilt";
 import {
   FaHtml5,
@@ -17,11 +18,11 @@ import {
   SiNetlify,
 } from "react-icons/si";
 import { GrMysql } from "react-icons/gr";
-import IntelliJLogo from "../../../assets/int.png.png";
-import JavaLogo from "../../../assets/java.png";
-import VSCodeLogo from "../../../assets/icons8-visual-studio-code-48.png";
-import FirebaseLogo from "../../../assets/icons8-firebase-24.png";
-import PythonLogo from "../../../assets/python.png";
+import IntelliJLogo from "../../assets/int.png.png";
+import JavaLogo from "../../assets/java.png";
+import VSCodeLogo from "../../assets/icons8-visual-studio-code-48.png";
+import FirebaseLogo from "../../assets/icons8-firebase-24.png";
+import PythonLogo from "../../assets/python.png";
 
 // ✅ Skills data with react-icons
 const SkillsInfo = [
@@ -153,60 +154,71 @@ const SkillsInfo = [
   },
 ];
 
-const Skills = () => (
-  <section
-    id="skills"
-    className="py-24 px-[6vw] md:px-[8vw] lg:px-[10vw] font-sans bg-skills-gradient clip-path-custom"
-  >
-    {/* Section Title */}
-    <div className="text-center mb-14">
-      <h2 className="text-3xl sm:text-4xl font-bold text-white">SKILLS</h2>
-      <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-3"></div>
-      <p className="text-gray-400 mt-4 text-lg font-medium max-w-2xl mx-auto">
-        A collection of my technical skills and expertise honed through various
-        projects and experiences
-      </p>
-    </div>
+const Skills = () => {
+  useEffect(() => {
+    console.log(`
+      Component Name: Skills
+      What was not responsive: Mobile horizontal padding was set to viewport width (px-[6vw]), which behaves inconsistently across different mobile screen widths.
+      What was changed to fix it: Switched px-[6vw] to a fixed px-6 padding for mobile devices.
+      Affected screen sizes: Mobile.
+    `);
+  }, []);
 
-    {/* Skill Categories in 4 equal cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {SkillsInfo.map((category) => (
-        <div
-          key={category.title}
-          className="bg-gray-900/70 backdrop-blur-md px-6 py-8 rounded-2xl border-2 border-white/20 
+  return (
+    <section
+      id="skills"
+      className="py-24 px-6 md:px-[8vw] lg:px-[10vw] font-sans bg-skills-gradient clip-path-custom overflow-hidden"
+    >
+      {/* Section Title */}
+      <div className="text-center mb-14">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white">SKILLS</h2>
+        <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-3"></div>
+        <p className="text-gray-400 mt-4 text-lg font-medium max-w-2xl mx-auto">
+          A collection of my technical skills and expertise honed through various
+          projects and experiences
+        </p>
+      </div>
+
+      {/* Skill Categories in 4 equal cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {SkillsInfo.map((category) => (
+          <div
+            key={category.title}
+            className="bg-gray-900/70 backdrop-blur-md px-6 py-8 rounded-2xl border-2 border-white/20 
           shadow-lg hover:shadow-[0_0_25px_rgba(130,69,236,0.6)] transition duration-300"
-        >
-          <h3 className="text-2xl font-semibold text-gray-200 mb-6 text-center">
-            {category.title}
-          </h3>
-
-          {/* Skill Items */}
-          <Tilt
-            tiltMaxAngleX={15}
-            tiltMaxAngleY={15}
-            perspective={1000}
-            scale={1.05}
-            transitionSpeed={1000}
           >
-            <div className="grid grid-cols-2 gap-4">
-              {category.skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="flex flex-col items-center justify-center border border-white/20 
+            <h3 className="text-2xl font-semibold text-gray-200 mb-6 text-center">
+              {category.title}
+            </h3>
+
+            {/* Skill Items */}
+            <Tilt
+              tiltMaxAngleX={15}
+              tiltMaxAngleY={15}
+              perspective={1000}
+              scale={1.05}
+              transitionSpeed={1000}
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex flex-col items-center justify-center border border-white/20 
                   rounded-xl py-4 hover:border-[#8245ec] hover:scale-105 transition duration-300"
-                >
-                  {skill.icon}
-                  <span className="mt-2 text-xs sm:text-sm text-gray-300">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </Tilt>
-        </div>
-      ))}
-    </div>
-  </section>
-);
+                  >
+                    {skill.icon}
+                    <span className="mt-2 text-xs sm:text-sm text-gray-300">
+                      {skill.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </Tilt>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default Skills;

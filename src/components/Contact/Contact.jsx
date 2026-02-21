@@ -1,11 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const form = useRef();
-  const [ setIsSent] = useState(false);
+  const [setIsSent] = useState(false);
+
+  useEffect(() => {
+    console.log(`
+      Component Name: Contact
+      What was not responsive: Mobile horizontal padding was set to viewport width (px-[12vw]) which caused the contact form to be overly squished on very small screens.
+      What was changed to fix it: Switched px-[12vw] to px-6 for mobile, keeping md:px-[7vw] for tablet and larger.
+      Affected screen sizes: Mobile.
+    `);
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -49,16 +58,16 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center justify-center py-24 px-[12vw] md:px-[7vw] lg:px-[20vw]"
+      className="flex flex-col items-center justify-center py-24 px-6 md:px-[7vw] lg:px-[20vw]"
     >
-      
+
       <ToastContainer />
 
-      
+
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold text-white">CONTACT</h2>
         <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
+        <p className="text-gray-400 mt-4 text-base md:text-lg font-semibold">
           I’d love to hear from you—reach out for any opportunities or
           questions!
         </p>
