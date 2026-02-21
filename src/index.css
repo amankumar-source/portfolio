@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global box-sizing reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* Let Lenis handle smooth scrolling */
 html {
   scroll-behavior: auto;
@@ -9,6 +16,16 @@ html {
 
 body {
   overflow-x: hidden;
+  /* Responsive text scaling for ultrawide */
+  font-size: clamp(14px, 1.1vw, 16px);
+}
+
+/* Responsive images and media */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Custom Scrollbar for horizontal scrolling in Heatmap */
@@ -28,4 +45,98 @@ body {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(57, 211, 83, 0.8);
+}
+
+/* ─── Performance: Keyframes moved OUT of JSX <style> tags ────────────────────
+   Injecting <style> inside component render functions causes the browser to
+   parse and insert CSS on every re-render. Declaring them here once is static. */
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.35s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+.animate-fadeInScale {
+  animation: fadeInScale 0.4s ease-out forwards;
+}
+
+.animate-spin {
+  animation: spin 0.75s linear infinite;
+}
+
+/* ─── Performance: GPU-composited layers for frequently animated elements ─────
+   `will-change` tells the browser to allocate a compositor layer in advance,
+   preventing layout thrash during hover/fade/scale transitions. Use sparingly —
+   only on elements that definitely animate. */
+
+.profile-img-wrap {
+  will-change: transform;
+}
+
+.skill-card {
+  will-change: transform, box-shadow;
+}
+
+.cert-card {
+  will-change: transform;
+}
+
+.project-card {
+  will-change: transform, box-shadow;
+}
+
+/* ─── Performance: contain layout for static sections ─────────────────────────
+   CSS `contain` limits paint/layout scope to the element, so browser skips
+   recalculating other parts of the page when these sections update. */
+#skills,
+#projects,
+#certifications,
+#experience,
+#contact {
+  contain: layout style;
 }

@@ -1,26 +1,33 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
-  FaFacebook,
-  FaTwitter,
   FaLinkedin,
-  FaInstagram,
-  FaYoutube,
   FaGithub,
   FaStackOverflow,
   FaCodepen,
+  FaTwitter,
+  FaYoutube,
 } from "react-icons/fa";
 
-const Footer = () => {
-  useEffect(() => {
-    console.log(`
-      Component Name: Footer
-      What was not responsive: Mobile horizontal padding was relative (px-[12vw]), squishing the content too much on narrow screens.
-      What was changed to fix it: Switched px-[12vw] to px-6 for mobile devices, maintained md scale.
-      Affected screen sizes: Mobile.
-    `);
-  }, []);
+// Static data outside component — no re-creation per render
+const NAV_ITEMS = [
+  { name: "Home", id: "home" },
+  { name: "Skills", id: "skills" },
+  { name: "Projects", id: "projects" },
+  { name: "Experience", id: "experience" },
+  { name: "Certifications", id: "certifications" },
+  { name: "Contact", id: "contact" },
+];
 
-  // Smooth scroll function
+const SOCIAL_LINKS = [
+  { icon: <FaLinkedin />, label: "LinkedIn", href: "https://www.linkedin.com/in/aman-kumar-96806030a" },
+  { icon: <FaGithub />, label: "GitHub", href: "https://github.com/amankumar-source" },
+  { icon: <FaStackOverflow />, label: "Stack Overflow", href: "https://stackoverflow.com/users/31342913/aman-singh" },
+  { icon: <FaCodepen />, label: "CodePen", href: "https://codepen.io/amankumar-source" },
+  { icon: <FaTwitter />, label: "Twitter / X", href: "https://x.com/AmanSingh114510" },
+  { icon: <FaYoutube />, label: "YouTube", href: "https://www.youtube.com/channel/UC-AVgwduT7F0wPVtpzYdeuQ" },
+];
+
+const Footer = () => {
   const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -32,20 +39,13 @@ const Footer = () => {
     <footer className="text-white py-8 px-6 md:px-[7vw] lg:px-[20vw]">
       <div className="container mx-auto text-center">
         {/* Name / Logo */}
-        <h2 className="text-xl font-semibold text-purple-500">Aman Kumar</h2>
+        <p className="text-xl font-semibold text-purple-500">Aman Kumar</p>
 
-        {/* Navigation Links - Responsive */}
-        <nav className="flex flex-wrap justify-center space-x-4 sm:space-x-8 mt-4">
-          {[
-            { name: "Home", id: "home" },
-            { name: "Skills", id: "skills" },
-            { name: "Projects", id: "projects" },
-            { name: "Experience", id: "experience" },
-            { name: "Certifications", id: "certifications" },
-            { name: "Contact", id: "contact" },
-          ].map((item, index) => (
+        {/* Navigation Links */}
+        <nav aria-label="Footer navigation" className="flex flex-wrap justify-center space-x-4 sm:space-x-8 mt-4">
+          {NAV_ITEMS.map((item) => (
             <button
-              key={index}
+              key={item.id}
               onClick={() => handleScroll(item.id)}
               className="hover:text-purple-500 text-sm sm:text-base my-1"
             >
@@ -54,33 +54,15 @@ const Footer = () => {
           ))}
         </nav>
 
-        {/* Social Media Icons - Responsive */}
-        <div className="flex flex-wrap justify-center gap-6 mt-6">
-          {[
-            {
-              icon: <FaLinkedin />,
-              link: "https://www.linkedin.com/in/aman-kumar-96806030a",
-            },
-            { icon: <FaGithub />, link: "https://github.com/amankumar-source" },
-            {
-              icon: <FaStackOverflow />,
-              link: "https://stackoverflow.com/users/31342913/aman-singh ",
-            },
-            {
-              icon: <FaCodepen />,
-              link: "https://codepen.io/amankumar-source",
-            },
-            { icon: <FaTwitter />, link: "https://x.com/AmanSingh114510" },
-            {
-              icon: <FaYoutube />,
-              link: "https://www.youtube.com/channel/UC-AVgwduT7F0wPVtpzYdeuQ",
-            },
-          ].map((item, index) => (
+        {/* Social Media Icons */}
+        <div className="flex flex-wrap justify-center gap-6 mt-6" aria-label="Social media links">
+          {SOCIAL_LINKS.map((item) => (
             <a
-              key={index}
-              href={item.link}
+              key={item.label}
+              href={item.href}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={item.label}
               className="text-xl hover:text-purple-500 transition-transform transform hover:scale-110"
             >
               {item.icon}
@@ -88,9 +70,9 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Copyright Text */}
+        {/* Copyright */}
         <p className="text-sm text-gray-400 mt-6">
-          © 2025 Aman Kumar. All rights reserved.
+          &copy; 2025 Aman Kumar. All rights reserved.
         </p>
       </div>
     </footer>

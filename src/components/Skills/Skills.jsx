@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Tilt from "react-parallax-tilt";
 import {
   FaHtml5,
@@ -155,14 +155,6 @@ const SkillsInfo = [
 ];
 
 const Skills = () => {
-  useEffect(() => {
-    console.log(`
-      Component Name: Skills
-      What was not responsive: Mobile horizontal padding was set to viewport width (px-[6vw]), which behaves inconsistently across different mobile screen widths.
-      What was changed to fix it: Switched px-[6vw] to a fixed px-6 padding for mobile devices.
-      Affected screen sizes: Mobile.
-    `);
-  }, []);
 
   return (
     <section
@@ -170,17 +162,17 @@ const Skills = () => {
       className="py-24 px-6 md:px-[8vw] lg:px-[10vw] font-sans bg-skills-gradient clip-path-custom overflow-hidden"
     >
       {/* Section Title */}
-      <div className="text-center mb-14">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white">SKILLS</h2>
+      <div className="text-center mb-10 md:mb-14">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">SKILLS</h2>
         <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-3"></div>
-        <p className="text-gray-400 mt-4 text-lg font-medium max-w-2xl mx-auto">
+        <p className="text-gray-400 mt-4 text-sm sm:text-base md:text-lg font-medium max-w-2xl mx-auto">
           A collection of my technical skills and expertise honed through various
           projects and experiences
         </p>
       </div>
 
-      {/* Skill Categories in 4 equal cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Skill Categories — 1 col on Z Fold, 2 col on iPad/sm, 4 col on desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-8">
         {SkillsInfo.map((category) => (
           <div
             key={category.title}

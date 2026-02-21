@@ -1,20 +1,10 @@
 import AboutImg from "../../assets/portfolio_img.png";
 import { IoArrowForward } from 'react-icons/io5';
-import { useEffect } from 'react';
 
 const About = () => {
-  useEffect(() => {
-    console.log(`
-      Component Name: About
-      What was not responsive: Container lacked mobile margins (mx-0) causing it to hit screen edges, and padding was too large (p-12) for mobile.
-      What was changed to fix it: Changed margins to 'mx-4 md:mx-20', padding to 'p-6 md:p-12', and added 'w-full' overflow controls.
-      Affected screen sizes: Mobile, Tablet.
-    `);
-  }, []);
-
   return (
     <div id='About' className='w-full overflow-hidden px-4 md:px-0'>
-      <div className='text-white flex flex-col md:flex-row overflow-hidden items-center md:flex-wrap md:justify-center bg-slate-950 shadow-xl mx-0 md:mx-20 rounded-2xl p-6 md:p-12 pt-16 md:pt-20'>
+      <div className='text-white flex flex-col overflow-hidden bg-slate-950 shadow-xl mx-0 md:mx-20 rounded-2xl p-6 md:p-12 pt-12 md:pt-20'>
 
         <div className='w-full'>
 
@@ -23,18 +13,23 @@ const About = () => {
             <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-2"></div>
           </div>
 
-          <div className='md:flex md:flex-row md:items-start flex-col items-center gap-8'>
-            <img className='md:h-80 w-full md:w-auto object-cover rounded-lg' src={AboutImg} alt="About" />
+          <div className='flex flex-col md:flex-row md:items-start gap-8'>
+            <img
+              className='w-full max-h-56 sm:max-h-72 md:h-80 md:w-auto object-cover rounded-lg flex-shrink-0'
+              src={AboutImg}
+              alt="About"
+              loading="lazy"
+              decoding="async"
+            />
 
-
-            <ul className="flex flex-col gap-6">
-              <li className="flex flex-col md:flex-row md:gap-3 items-center md:items-start">
-                <IoArrowForward size={30} className="mt-1 md:mt-0 text-blue-500" />
-                <div className="text-center md:text-left max-w-md">
-                  <h1 className="text-xl md:text-2xl font-semibold leading-normal">
+            <ul className="flex flex-col gap-6 flex-1">
+              <li className="flex flex-col sm:flex-row gap-3 items-center sm:items-start">
+                <IoArrowForward size={28} className="mt-1 text-blue-500 flex-shrink-0" />
+                <div className="text-center sm:text-left">
+                  <h3 className="text-xl md:text-2xl font-semibold leading-normal">
                     Technical Skills
-                  </h1>
-                  <p className="text-sm md:text-md leading-tight">
+                  </h3>
+                  <p className="text-sm md:text-base leading-relaxed text-gray-300 mt-1">
                     Proficient in the MERN stack (MongoDB, Express, React, Node.js) with
                     strong problem-solving skills in Java. Experienced in building
                     responsive, scalable, and user-friendly applications.
@@ -42,13 +37,13 @@ const About = () => {
                 </div>
               </li>
 
-              <li className="flex flex-col md:flex-row md:gap-3 items-center md:items-start">
-                <IoArrowForward size={30} className="mt-1 md:mt-0 text-blue-500" />
-                <div className="text-center md:text-left max-w-md">
-                  <h1 className="text-xl md:text-2xl font-semibold leading-normal">
-                    Projects & Experience
-                  </h1>
-                  <p className="text-sm md:text-md leading-tight">
+              <li className="flex flex-col sm:flex-row gap-3 items-center sm:items-start">
+                <IoArrowForward size={28} className="mt-1 text-blue-500 flex-shrink-0" />
+                <div className="text-center sm:text-left">
+                  <h3 className="text-xl md:text-2xl font-semibold leading-normal">
+                    Projects &amp; Experience
+                  </h3>
+                  <p className="text-sm md:text-base leading-relaxed text-gray-300 mt-1">
                     Hands-on experience through academic and personal projects,
                     including full-stack web applications, REST APIs, and interactive
                     front-end solutions. Familiar with Git, GitHub, and collaborative
@@ -57,13 +52,13 @@ const About = () => {
                 </div>
               </li>
 
-              <li className="flex flex-col md:flex-row md:gap-3 items-center md:items-start">
-                <IoArrowForward size={30} className="mt-1 md:mt-0 text-blue-500" />
-                <div className="text-center md:text-left max-w-md">
-                  <h1 className="text-xl md:text-2xl font-semibold leading-normal">
+              <li className="flex flex-col sm:flex-row gap-3 items-center sm:items-start">
+                <IoArrowForward size={28} className="mt-1 text-blue-500 flex-shrink-0" />
+                <div className="text-center sm:text-left">
+                  <h3 className="text-xl md:text-2xl font-semibold leading-normal">
                     Soft Skills
-                  </h1>
-                  <p className="text-sm md:text-md leading-tight">
+                  </h3>
+                  <p className="text-sm md:text-base leading-relaxed text-gray-300 mt-1">
                     Strong communication, teamwork, and adaptability with a keen eye for
                     detail. Passionate about problem-solving, debugging, and writing
                     clean, maintainable code.
@@ -71,48 +66,25 @@ const About = () => {
                 </div>
               </li>
 
-              <li className="flex flex-col md:flex-row md:gap-3 items-center md:items-start">
-                <IoArrowForward size={30} className="mt-1 md:mt-0 text-blue-500" />
-                <div className="text-center md:text-left max-w-md">
-                  <h1 className="text-xl md:text-2xl font-semibold leading-normal">
+              <li className="flex flex-col sm:flex-row gap-3 items-center sm:items-start">
+                <IoArrowForward size={28} className="mt-1 text-blue-500 flex-shrink-0" />
+                <div className="text-center sm:text-left">
+                  <h3 className="text-xl md:text-2xl font-semibold leading-normal">
                     Career Goals
-                  </h1>
-                  <p className="text-sm md:text-md leading-tight">
-                    B.Tech (CSE) graduate currently working as an Associate Software Engineer, leveraging full-stack development skills, strong problem-solving abilities, and a continuous learning mindset to build scalable and impactful software solutions.
+                  </h3>
+                  <p className="text-sm md:text-base leading-relaxed text-gray-300 mt-1">
+                    B.Tech (CSE) graduate currently working as an Associate Software Engineer,
+                    leveraging full-stack development skills, strong problem-solving abilities,
+                    and a continuous learning mindset to build scalable and impactful software solutions.
                   </p>
                 </div>
               </li>
             </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

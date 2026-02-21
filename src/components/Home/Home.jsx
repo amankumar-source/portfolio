@@ -1,47 +1,39 @@
-
 import profileImg from "../../assets/profileimg-removebg-preview.png";
 import Text from "../../Text";
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import GitHubHeatmap from "../GitHubHeatmap/GitHubHeatmap";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    console.log(`
-      Component Name: Home (Hero section)
-      What was not responsive: Earlier on mobile the heatmap and texts overflowed due to missing containers and nested HTML tags, forcing a horizontal scroll on some viewports.
-      What was changed to fix it: Implemented 'w-full px-6 sm:px-10 md:px-20 flex-col-reverse' layout, locked mobile grid widths gracefully.
-      Affected screen sizes: All.
-    `);
-  }, []);
+  const openModal = useCallback(() => setIsOpen(true), []);
+  const closeModal = useCallback(() => setIsOpen(false), []);
 
   return (
     <section
       id="home"
       className="min-h-screen text-white flex flex-col-reverse md:flex-row w-full 
       justify-center md:justify-between items-center 
-      px-6 sm:px-10 md:px-20 pt-16 md:pt-20 gap-8"
+      px-4 sm:px-8 md:px-12 lg:px-20 pt-16 md:pt-20 gap-6 md:gap-8"
     >
-      {/* Left Content */}
-      <div className="w-full lg:w-3/5 text-center md:text-left flex flex-col justify-center">
+      {/* Left Content — explicit md width for iPad */}
+      <div className="w-full md:w-[55%] lg:w-3/5 text-center md:text-left flex flex-col justify-center">
         <div className="w-full text-center md:text-left flex flex-col justify-center">
           <Text />
         </div>
 
-        <h2 className="mt-4 text-lg sm:text-xl md:text-2xl font-medium text-gray-400">
+        <h2 className="mt-3 md:mt-4 text-base sm:text-xl md:text-2xl font-medium text-gray-400">
           Associate Software Engineer
         </h2>
 
-        <p className="mt-5 max-w-xl mx-auto md:mx-0 text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
+        <p className="mt-4 md:mt-5 max-w-xl mx-auto md:mx-0 text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
           Associate Software Engineer building scalable, user-centric web applications using the MERN stack and Java, focused on clean and maintainable code.
         </p>
 
         {/* Buttons */}
-        <div className="mt-6 flex flex-col sm:flex-row items-center md:items-start gap-4">
+        <div className="mt-5 md:mt-6 flex flex-col sm:flex-row items-center md:items-start gap-3 sm:gap-4">
           <button
-            onClick={() => setIsOpen(true)}
-            className="w-full sm:w-auto px-7 py-2.5 rounded-full 
+            onClick={openModal}
+            className="w-full sm:w-auto px-6 md:px-7 py-2.5 rounded-full 
             bg-indigo-600 text-white font-semibold 
             hover:bg-indigo-500 transition duration-300"
           >
@@ -50,9 +42,9 @@ const Home = () => {
 
           <a
             href="mailto:ar1075840@gmail.com"
-            className="w-full sm:w-auto px-7 py-2.5 rounded-full 
+            className="w-full sm:w-auto px-6 md:px-7 py-2.5 rounded-full 
             border border-gray-500 text-gray-200 font-semibold 
-            hover:bg-white hover:text-black transition duration-300"
+            hover:bg-white hover:text-black transition duration-300 text-center"
           >
             Contact Me
           </a>
@@ -62,16 +54,17 @@ const Home = () => {
         <GitHubHeatmap />
       </div>
 
-      {/* Right Image – Clean & Premium */}
-      <div className="flex justify-center md:justify-end w-full md:w-auto">
+      {/* Right Image — proportional sizes for each breakpoint */}
+      <div className="flex justify-center md:justify-end w-full md:w-auto flex-shrink-0">
         <div
           className="relative 
-          w-40 h-40 
-          sm:w-56 sm:h-56 
-          md:w-[22rem] md:h-[22rem] 
-          lg:w-[26rem] lg:h-[26rem]"
+          w-36 h-36 
+          sm:w-48 sm:h-48 
+          md:w-52 md:h-52 
+          lg:w-[22rem] lg:h-[22rem]
+          xl:w-[26rem] xl:h-[26rem]"
         >
-          {/* Soft outer glow (desktop only) */}
+          {/* Soft outer glow (tablet+ only) */}
           <div className="hidden md:block absolute inset-0 rounded-full 
           bg-gradient-to-br from-indigo-500/40 to-purple-600/40 
           blur-3xl opacity-40"></div>
@@ -80,7 +73,7 @@ const Home = () => {
           <div className="absolute inset-0 rounded-full 
           bg-gradient-to-br from-indigo-500 to-purple-600 p-[3px]">
             {/* Inner dark ring */}
-            <div className="w-full h-full rounded-full bg-[#0f172a] p-[6px]">
+            <div className="w-full h-full rounded-full bg-[#0f172a] p-[5px] md:p-[6px]">
               {/* Image */}
               <img
                 src={profileImg}
@@ -95,29 +88,32 @@ const Home = () => {
 
       {/* CV Modal */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="CV Preview"
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
           <div
-            className="bg-white rounded-2xl shadow-2xl w-[90%] md:w-[70%] lg:w-[60%] 
-            h-[80%] relative p-4 flex flex-col animate-fadeInScale"
+            className="bg-white rounded-2xl shadow-2xl w-full md:w-[70%] lg:w-[60%] 
+            h-[85vh] relative p-4 flex flex-col animate-fadeInScale"
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 w-10 h-10 
-              rounded-full bg-gray-100 text-black font-bold 
-              hover:bg-red-600 hover:text-white transition"
+              onClick={closeModal}
+              aria-label="Close CV preview"
+              className="absolute top-3 right-3 w-9 h-9 
+              rounded-full bg-gray-100 text-black font-bold text-sm
+              hover:bg-red-600 hover:text-white transition z-10"
             >
               ✕
             </button>
-
-            {/* Resume */}
             <iframe
               src="/Aman-Resume.pdf"
-              title="Resume Preview"
-              className="w-full flex-1 rounded-lg border"
+              title="Aman Kumar Resume"
+              className="w-full flex-1 rounded-lg border mt-2"
             />
-
-            {/* Download Button */}
             <div className="mt-4 flex justify-center">
               <a
                 href="/Aman-Resume.pdf"

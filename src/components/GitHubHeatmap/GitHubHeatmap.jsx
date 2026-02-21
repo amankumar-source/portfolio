@@ -3,21 +3,21 @@ import { GitHubCalendar } from 'react-github-calendar';
 
 const GitHubHeatmap = () => {
     return (
-        <div className="w-full max-w-[95vw] lg:max-w-full mt-10 flex flex-col items-center md:items-start z-10 overflow-hidden">
-            <h3 className="text-base font-semibold text-gray-400 mb-4 uppercase tracking-wider">
+        <div className="w-full mt-8 md:mt-10 flex flex-col items-center md:items-start z-10">
+            <h3 className="text-sm md:text-base font-semibold text-gray-400 mb-3 md:mb-4 uppercase tracking-wider">
                 GitHub Contributions
             </h3>
-            {/* Scrollable container for mobile */}
+            {/* Scrollable container — allows horizontal scroll on all narrow screens */}
             <div className="w-full overflow-x-auto overflow-y-hidden pb-3 custom-scrollbar">
-                <div className="min-w-[800px] sm:min-w-max pr-2 pl-1 pt-1 opacity-90 transition-opacity hover:opacity-100">
+                <div className="pr-2 pl-1 pt-1 opacity-90 transition-opacity hover:opacity-100" style={{ minWidth: 'max-content' }}>
                     <GitHubCalendar
                         username="amankumar-source"
                         colorScheme="dark"
-                        fontSize={13}
-                        blockSize={13}
-                        blockMargin={4}
+                        fontSize={11}
+                        blockSize={11}
+                        blockMargin={3}
                         hideColorLegend={false}
-                        hideTotalCount={true}
+                        hideTotalCount={false}
                     />
                 </div>
             </div>

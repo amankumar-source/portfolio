@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ProjectCard from "./ProjectCard";
 import blogImg from "../../assets/project1.png";
 import jobImg from "../../assets/job.png";
@@ -100,32 +100,23 @@ const ProjectsInfo = [
 ];
 
 const Projects = () => {
-  useEffect(() => {
-    console.log(`
-      Component Name: Projects
-      What was not responsive: Mobile horizontal padding was set to relative viewport width (px-[8vw]), causing slightly inconsistent card constraints on extremely narrow screens.
-      What was changed to fix it: Switched px-[8vw] to a fixed readable px-6 padding for consistency on mobile devices, keeping md/lg values intact.
-      Affected screen sizes: Mobile.
-    `);
-  }, []);
-
   return (
     <section
       id="projects"
-      className="py-24 px-6 md:px-[6vw] lg:px-[16vw] font-sans overflow-hidden"
+      className="py-16 md:py-24 px-4 sm:px-6 md:px-[6vw] lg:px-[16vw] font-sans overflow-hidden"
     >
       {/* Section Title */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white">PROJECTS</h2>
-        <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-3 rounded-full"></div>
-        <p className="text-gray-400 mt-4 text-lg font-medium max-w-2xl mx-auto">
+      <div className="text-center mb-10 md:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">PROJECTS</h2>
+        <div className="w-20 md:w-24 h-1 bg-[#8245ec] mx-auto mt-3 rounded-full"></div>
+        <p className="text-gray-400 mt-4 text-sm sm:text-base md:text-lg font-medium max-w-2xl mx-auto">
           A selection of projects I have worked on showcasing my skills and
           creativity
         </p>
       </div>
 
-      {/* Project Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Project Cards — 1 col mobile/Z-Fold, 2 col iPad, 3 col desktop */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
         {ProjectsInfo.map((project, idx) => (
           <ProjectCard
             key={idx}

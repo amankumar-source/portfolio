@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { RiCloseLine, RiMenu2Line } from "@remixicon/react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
-
-  useEffect(() => {
-    console.log(`
-      Component Name: Navbar
-      What was not responsive: Mobile padding was px-10 which consumed too much horizontal space on narrow screens (320px/375px), leaving very little room for the logo and menu icons side-by-side.
-      What was changed to fix it: Adjusted padding to 'px-6 md:px-20', recovering safe spacing for the mobile header.
-      Affected screen sizes: Mobile.
-    `);
-  }, []);
 
   const handleScroll = (id) => {
     const section = document.getElementById(id);

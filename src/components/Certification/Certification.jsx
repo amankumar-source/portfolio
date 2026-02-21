@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback, memo } from "react";
 
 // Certification data
 const CertificationsInfo = [
@@ -54,17 +54,29 @@ const CertificationsInfo = [
   },
 ];
 
-const CertificationCard = ({ cert, onOpen, stopScroll }) => {
+// React.memo: card re-renders only if cert/onOpen/stopScroll references change.
+// During auto-scroll (rapid DOM updates on the container) the cards themselves
+// do NOT change — memo prevents their entire sub-tree from diffing.
+const CertificationCard = memo(function CertificationCard({ cert, onOpen, stopScroll }) {
+  const handleOpen = useCallback(() => onOpen(cert.imgSrc), [onOpen, cert.imgSrc]);
+  // Stop auto-scroll only on the card wrapper — not on inner interactive elements
+  const handleCardClick = useCallback((e) => {
+    // Only stop scroll if the click was on the card background, not a button/img
+    if (e.target === e.currentTarget) stopScroll();
+  }, [stopScroll]);
+
   return (
-    <div
-      className="bg-[#1f1f1f] p-4 rounded-2xl shadow-lg flex-shrink-0 w-64 cursor-pointer flex flex-col items-center hover:scale-105 transition-transform duration-300"
-      onClick={stopScroll} // Stop scrolling when card clicked
+    <article
+      className="cert-card bg-[#1f1f1f] p-4 rounded-2xl shadow-lg flex-shrink-0 w-64 flex flex-col items-center hover:scale-105 transition-transform duration-300"
+      onClick={handleCardClick}
     >
       <img
         src={cert.imgSrc}
         alt={cert.title}
+        loading="lazy"
+        decoding="async"
         className="w-full h-36 object-cover rounded-xl mb-3 cursor-pointer"
-        onClick={() => onOpen(cert.imgSrc)}
+        onClick={handleOpen}
       />
       <h3 className="text-lg font-semibold text-white mb-1 text-center">
         {cert.title}
@@ -73,14 +85,14 @@ const CertificationCard = ({ cert, onOpen, stopScroll }) => {
         {cert.description}
       </p>
       <button
-        onClick={() => onOpen(cert.imgSrc)}
+        onClick={handleOpen}
         className="bg-[#8245ec] text-white px-3 py-1 rounded-lg font-medium hover:bg-[#6939c6] transition-colors duration-300 text-sm"
       >
         View Certificate
       </button>
-    </div>
+    </article>
   );
-};
+});
 
 const Certifications = () => {
   const [modalImg, setModalImg] = useState(null);
@@ -89,22 +101,14 @@ const Certifications = () => {
   const scrollIntervalRef = useRef(null);
   const isResettingRef = useRef(false); // Track if reset is happening to avoid blinking
 
-  // Function to stop auto-scroll
-  const stopScroll = () => {
+  // useCallback: stable reference so CertificationCard (memo'd) doesn't re-render
+  // when Certifications itself re-renders due to modalImg state changes.
+  const stopScroll = useCallback(() => {
     if (scrollIntervalRef.current) {
       clearInterval(scrollIntervalRef.current);
       scrollIntervalRef.current = null;
       isResettingRef.current = false;
     }
-  };
-
-  useEffect(() => {
-    console.log(`
-      Component Name: Certifications
-      What was not responsive: Modal dialog was potentially wider than mobile screens due to lack of w-full constraints and had insufficient padding limits. Close button would overlap small screens.
-      What was changed to fix it: Added w-full to the modal content container, responsive padding (p-4 md:p-6), and adjusted the close button to adapt for mobile (top-2 right-2). Added p-4 wrapper to avoid screen edge clipping.
-      Affected screen sizes: Mobile, Tablet.
-    `);
   }, []);
 
   // Auto-scroll logic
@@ -176,7 +180,7 @@ const Certifications = () => {
       observer.observe(sectionRef.current);
     }
 
-    // ✅ Detect manual scroll/touch/wheel → stop auto-scroll
+    // Detect manual scroll/touch/wheel to stop auto-scroll
     const scrollEl = scrollRef.current;
     if (scrollEl) {
       scrollEl.addEventListener("touchstart", stopScroll, { passive: true });
@@ -193,21 +197,21 @@ const Certifications = () => {
         scrollEl.removeEventListener("wheel", stopScroll);
       }
     };
-  }, []);
+  }, [stopScroll]);
 
   return (
     <section
       id="certifications"
       ref={sectionRef}
-      className="py-24 px-[5vw] md:px-[6vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom"
+      className="py-16 md:py-24 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom"
     >
       {/* Section Title */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white">
+      <div className="text-center mb-10 md:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
           CERTIFICATIONS
         </h2>
-        <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-3"></div>
-        <p className="text-gray-400 mt-4 text-lg font-medium max-w-2xl mx-auto">
+        <div className="w-20 md:w-24 h-1 bg-[#8245ec] mx-auto mt-3"></div>
+        <p className="text-gray-400 mt-4 text-sm sm:text-base md:text-lg font-medium max-w-2xl mx-auto">
           A collection of certifications showcasing my skills and achievements
         </p>
       </div>
@@ -217,9 +221,9 @@ const Certifications = () => {
         ref={scrollRef}
         className="flex gap-6 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-[#8245ec] scrollbar-track-gray-900"
       >
-        {CertificationsInfo.map((cert, idx) => (
+        {CertificationsInfo.map((cert) => (
           <CertificationCard
-            key={idx}
+            key={cert.imgSrc}
             cert={cert}
             onOpen={setModalImg}
             stopScroll={stopScroll}
@@ -230,21 +234,23 @@ const Certifications = () => {
       {/* Modal with Stylish Animation */}
       {modalImg && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Certificate preview"
           className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
           onClick={() => setModalImg(null)}
         >
           <div
-            className="bg-[#1f1f1f] p-4 md:p-6 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-auto transform scale-0 opacity-0 transition-all duration-300 ease-out animate-scaleUp relative"
+            className="bg-[#1f1f1f] p-4 md:p-6 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-auto animate-scaleUp relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button shifted to top-right */}
             <button
               onClick={() => setModalImg(null)}
+              aria-label="Close certificate preview"
               className="absolute top-2 right-2 md:top-4 md:right-4 bg-[#8245ec] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-sm hover:bg-[#6939c6] transition-colors duration-300"
             >
               Close
             </button>
-
             <img
               src={modalImg}
               alt="Certificate"
@@ -254,17 +260,6 @@ const Certifications = () => {
         </div>
       )}
 
-      <style>
-        {`
-          @keyframes scaleUp {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-          }
-          .animate-scaleUp {
-            animation: scaleUp 0.3s ease-out forwards;
-          }
-        `}
-      </style>
     </section>
   );
 };

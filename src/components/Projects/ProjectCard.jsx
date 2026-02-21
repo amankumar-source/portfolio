@@ -1,38 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, memo } from "react";
 
-const ProjectCard = ({
+// React.memo: prevents re-render if parent re-renders with the same props
+const ProjectCard = memo(function ProjectCard({
   title,
   description,
   tags,
   demoLink,
   codeLink,
   image,
-}) => {
+}) {
   const [isOpen, setIsOpen] = useState(false);
+
+  // useCallback: creates stable handler references — avoids new function instances each render
+  const open = useCallback(() => setIsOpen(true), []);
+  const close = useCallback(() => setIsOpen(false), []);
 
   return (
     <>
+      {/* project-card class applies will-change:transform from index.css */}
       <div
-        className="group relative bg-[#0e0e1a] border border-white rounded-2xl overflow-hidden shadow-md hover:shadow-[0_0_25px_3px_rgba(130,69,236,0.6)] transition-all duration-300 flex flex-col cursor-pointer h-[550px]" // Increased height
-        onClick={() => setIsOpen(true)}
+        className="project-card group relative bg-[#0e0e1a] border border-white rounded-2xl overflow-hidden shadow-md hover:shadow-[0_0_25px_3px_rgba(130,69,236,0.6)] transition-all duration-300 flex flex-col cursor-pointer min-h-[480px]"
+        onClick={open}
       >
-        {/* Project Image */}
         {image && (
-          <div className="w-full h-56 overflow-hidden">
+          <div className="w-full h-48 sm:h-56 overflow-hidden">
             <img
               src={image}
               alt={title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
         )}
 
-        {/* Content */}
-        <div className="p-6 flex flex-col flex-grow">
-          <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+        <div className="p-5 sm:p-6 flex flex-col flex-grow">
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{title}</h3>
           <p className="text-gray-400 text-sm flex-grow">{description}</p>
 
-          {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-4">
             {tags.map((tag, idx) => (
               <span
@@ -46,34 +51,37 @@ const ProjectCard = ({
         </div>
       </div>
 
-      {/* Popup Modal */}
+      {/* Modal — animate-scaleUp is now declared in index.css */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 px-4">
-          <div className="relative bg-[#121224] rounded-3xl shadow-2xl w-full max-w-4xl h-[90vh] sm:h-auto p-6 sm:p-8 animate-scaleUp border border-purple-700 flex flex-col justify-between">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 px-4 py-6"
+          onClick={close}
+        >
+          <div
+            className="relative bg-[#121224] rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-5 sm:p-8 animate-scaleUp border border-purple-700 flex flex-col gap-5"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center text-lg font-bold shadow-lg transition"
+              onClick={close}
+              className="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white rounded-full w-9 h-9 flex items-center justify-center text-base font-bold shadow-lg transition z-10"
             >
               ✕
             </button>
 
-            {/* Big Image */}
             {image && (
               <img
                 src={image}
                 alt={title}
-                className="w-full h-80 object-cover rounded-xl mb-6 shadow-lg"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-40 sm:h-56 md:h-72 object-cover rounded-xl shadow-lg"
               />
             )}
 
-            {/* Title & Description */}
-            <h3 className="text-3xl font-bold text-white mb-3">{title}</h3>
-            <p className=" text-gray-300 mb-6 text-lg leading-relaxed">
-              {description}
-            </p>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{title}</h3>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">{description}</p>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-2">
               {tags.map((tag, idx) => (
                 <span
                   key={idx}
@@ -84,13 +92,12 @@ const ProjectCard = ({
               ))}
             </div>
 
-            {/* Buttons only inside popup */}
-            <div className="flex gap-6">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
               <a
                 href={demoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 text-center py-3 rounded-xl font-semibold text-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md hover:brightness-125 hover:scale-105 transition-transform duration-300"
+                className="flex-1 text-center py-3 rounded-xl font-semibold text-base sm:text-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md hover:brightness-125 hover:scale-105 transition-transform duration-300"
               >
                 🚀 Demo
               </a>
@@ -98,7 +105,7 @@ const ProjectCard = ({
                 href={codeLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 text-center py-3 rounded-xl font-semibold text-lg bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-md hover:brightness-125 hover:scale-105 transition-transform duration-300"
+                className="flex-1 text-center py-3 rounded-xl font-semibold text-base sm:text-lg bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-md hover:brightness-125 hover:scale-105 transition-transform duration-300"
               >
                 💻 Code
               </a>
@@ -106,21 +113,8 @@ const ProjectCard = ({
           </div>
         </div>
       )}
-
-      {/* Animation Style */}
-      <style>
-        {`
-          @keyframes scaleUp {
-            0% { transform: scale(0.85); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-          }
-          .animate-scaleUp {
-            animation: scaleUp 0.35s ease-out forwards;
-          }
-        `}
-      </style>
     </>
   );
-};
+});
 
 export default ProjectCard;
