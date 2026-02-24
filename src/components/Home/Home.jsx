@@ -22,11 +22,11 @@ const Home = () => {
         </div>
 
         <h2 className="mt-3 md:mt-4 text-base sm:text-xl md:text-2xl font-medium text-gray-400">
-          Associate Software Engineer
+         Aspiring Software Engineer
         </h2>
 
         <p className="mt-4 md:mt-5 max-w-xl mx-auto md:mx-0 text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed">
-          Associate Software Engineer building scalable, user-centric web applications using the MERN stack and Java, focused on clean and maintainable code.
+          Aspiring Software Engineer building scalable, user-centric web applications using the MERN stack and Java, focused on clean and maintainable code.
         </p>
 
         {/* Buttons */}
