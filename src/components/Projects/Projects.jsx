@@ -24,9 +24,9 @@ const ProjectsInfo = [
     image: blogImg,
   },
   {
-    title: "Job Board and Recruitment Management System",
+    title: "AI-Powered Job & Recruitment Platform",
     description:
-      "Fullstack Job Portal App using MERN stack for efficient job searching and recruitment.",
+      "Built an AI-powered MERN-stack job and recruitment platform with resume parsing, skill-gap analysis, and role-based hiring workflows.",
     tags: [
       "React",
       "Shadcn-ui",
@@ -35,6 +35,8 @@ const ProjectsInfo = [
       "Tailwindcss",
       "Express",
       "Redux",
+      "Skill Gap Analysis",
+      "Ai",
     ],
     demoLink: "https://job-board-recruitment-system.vercel.app",
     codeLink: "https://github.com/amankumar-source/JobBoard-Recruitment-System",
@@ -107,7 +109,9 @@ const Projects = () => {
     >
       {/* Section Title */}
       <div className="text-center mb-10 md:mb-12">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">PROJECTS</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+          PROJECTS
+        </h2>
         <div className="w-20 md:w-24 h-1 bg-[#8245ec] mx-auto mt-3 rounded-full"></div>
         <p className="text-gray-400 mt-4 text-sm sm:text-base md:text-lg font-medium max-w-2xl mx-auto">
           A selection of projects I have worked on showcasing my skills and
