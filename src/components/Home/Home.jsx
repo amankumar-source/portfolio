@@ -1,9 +1,10 @@
 import profileImg from "../../assets/profileimg-removebg-preview.png";
 import Text from "../../Text";
 import { useState, useCallback } from "react";
+import { Sparkles } from "lucide-react";
 import GitHubHeatmap from "../GitHubHeatmap/GitHubHeatmap";
 
-const Home = () => {
+const Home = ({ onOpenChat }) => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = useCallback(() => setIsOpen(true), []);
   const closeModal = useCallback(() => setIsOpen(false), []);
@@ -35,7 +36,7 @@ const Home = () => {
             onClick={openModal}
             className="w-full sm:w-auto px-6 md:px-7 py-2.5 rounded-full 
             bg-indigo-600 text-white font-semibold 
-            hover:bg-indigo-500 transition duration-300"
+            hover:bg-indigo-500 transition duration-300 shadow-md cursor-pointer"
           >
             Download CV
           </button>
@@ -44,10 +45,23 @@ const Home = () => {
             href="mailto:ar1075840@gmail.com"
             className="w-full sm:w-auto px-6 md:px-7 py-2.5 rounded-full 
             border border-gray-500 text-gray-200 font-semibold 
-            hover:bg-white hover:text-black transition duration-300 text-center"
+            hover:bg-white hover:text-black transition duration-300 text-center cursor-pointer"
           >
             Contact Me
           </a>
+
+          <button
+            onClick={onOpenChat}
+            className="w-full sm:w-auto px-6 md:px-7 py-2.5 rounded-full 
+            flex items-center justify-center gap-2.5
+            bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500
+            border border-purple-400/50 
+            text-white font-semibold transition-all duration-300 
+            animate-ai-pulse cursor-pointer shadow-[0_0_22px_rgba(130,69,236,0.6)] hover:scale-105"
+          >
+            <Sparkles className="w-4 h-4 text-purple-200 animate-spin-slow" />
+            <span>Ask Me AI</span>
+          </button>
         </div>
 
         {/* GitHub Contribution Heatmap */}

@@ -67,7 +67,6 @@ const Navbar = () => {
 
         {/* Social Icons (desktop always visible) */}
         <div className="hidden md:flex items-center gap-5 ml-10">
-
           <a
             href="https://www.linkedin.com/in/aman-kumar-96806030a"
             target="_blank"
@@ -172,4 +171,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

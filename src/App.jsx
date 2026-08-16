@@ -1,6 +1,7 @@
-import React, { Suspense, lazy } from 'react'
+import React, { useState, Suspense, lazy } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home'
+import AmanAI from './components/AmanAI/AmanAI'
 
 // Code-split all below-fold sections — only downloaded when needed
 const Skills = lazy(() => import('./components/Skills/Skills'))
@@ -17,11 +18,13 @@ const SectionFallback = () => (
 )
 
 function App() {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
-    <div className='bg-[#171d32] min-h-screen w-full'>
+    <div className='bg-[#171d32] min-h-screen w-full relative'>
       <Navbar />
-      <Home />
-      {/* Single Suspense boundary wraps all lazy sections — simpler and avoids spinner flash between each */}
+      <Home onOpenChat={() => setIsChatOpen(true)} />
+      {/* Single Suspense boundary wraps all lazy sections */}
       <Suspense fallback={<SectionFallback />}>
         <Skills />
         <Projects />
@@ -30,6 +33,7 @@ function App() {
         <Contact />
         <Footer />
       </Suspense>
+      <AmanAI isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   )
 }

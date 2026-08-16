@@ -140,3 +140,40 @@ iframe {
 #contact {
   contain: layout style;
 }
+
+/* ─── Gentle Attention Animation for Ask Me AI Button ───────────────── */
+@keyframes subtleAiPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(130, 69, 236, 0.35);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(168, 85, 247, 0.75), 0 0 8px rgba(168, 85, 247, 0.4);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-ai-pulse {
+  animation: subtleAiPulse 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}
+
+/* Disable attention animation if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ai-pulse,
+  .animate-spin-slow {
+    animation: none !important;
+  }
+}
