@@ -16,8 +16,8 @@ const Home = ({ onOpenChat }) => {
       justify-center md:justify-between items-center 
       px-4 sm:px-8 md:px-12 lg:px-20 pt-24 sm:pt-28 md:pt-24 lg:pt-28 pb-12 gap-8 md:gap-8 overflow-hidden"
     >
-      {/* Left Content — explicit md width for iPad */}
-      <div className="w-full md:w-[55%] lg:w-3/5 text-center md:text-left flex flex-col justify-center">
+      {/* Left Content — explicit width for tablet & desktop */}
+      <div className="w-full md:w-[62%] lg:w-[65%] text-center md:text-left flex flex-col justify-center">
         <div className="w-full text-center md:text-left flex flex-col justify-center">
           <Text />
         </div>
@@ -52,8 +52,8 @@ const Home = ({ onOpenChat }) => {
 
           <button
             onClick={onOpenChat}
-            className="w-full sm:w-auto px-6 md:px-7 py-2.5 rounded-full 
-            flex items-center justify-center gap-2.5
+            className="hidden sm:flex w-auto px-6 md:px-7 py-2.5 rounded-full 
+            items-center justify-center gap-2.5
             bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500
             border border-purple-400/50 
             text-white font-semibold transition-all duration-300 

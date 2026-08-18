@@ -186,10 +186,43 @@ iframe {
   animation: spinSlow 8s linear infinite;
 }
 
+/* ─── Shimmering Liquid Gradient & Float Keyframes ──────────────────── */
+@keyframes shimmerFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-shimmer-text {
+  background-size: 200% 200%;
+  animation: shimmerFlow 5s ease infinite;
+}
+
+.animate-float-text {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
 /* Disable attention animation if user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-ai-pulse,
-  .animate-spin-slow {
+  .animate-spin-slow,
+  .animate-shimmer-text,
+  .animate-float-text {
     animation: none !important;
   }
 }
