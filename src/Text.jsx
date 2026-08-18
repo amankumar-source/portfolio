@@ -3,7 +3,11 @@ import React, { useState, useEffect, memo } from "react";
 // Performance: texts array is OUTSIDE the component.
 // Previously inside the function body — meaning a new array was allocated on EVERY render.
 // Outside = created once, shared reference, zero allocation cost per render.
-const TEXTS = ["Hi, I'm Aman Kumar"];
+const TEXTS = [
+  "Hi, I'm Aman Kumar",
+  "Full-Stack Web Developer",
+  "MERN Stack & Java Engineer",
+];
 
 // React.memo: Text only re-renders when its own state (fade/index) changes,
 // not when Home re-renders (e.g. on CV modal open/close).
