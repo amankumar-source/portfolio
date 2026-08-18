@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import path from "path";
 import { amanProfile } from "../src/data/amanProfile.js";
 
-dotenv.config();
-dotenv.config({ path: path.resolve(process.cwd(), ".env") });
-dotenv.config({ path: path.resolve(process.cwd(), "server/.env") });
+dotenv.config({ override: true });
+dotenv.config({ path: path.resolve(process.cwd(), ".env"), override: true });
+dotenv.config({ path: path.resolve(process.cwd(), "server/.env"), override: true });
 
 // Basic in-memory rate limiter per IP (max 20 requests per minute)
 const rateLimitMap = new Map();
@@ -85,7 +85,10 @@ export default async function handler(req, res) {
     }
 
     const apiKey = process.env.GROQ_API_KEY || process.env.VITE_GROQ_API_KEY;
-    const modelName = process.env.GROQ_MODEL || "openai/gpt-oss-20b";
+    let modelName = process.env.GROQ_MODEL || "openai/gpt-oss-20b";
+    if (!modelName || modelName.includes("llama-3.3") || modelName.includes("8192") || modelName.includes("gemma2") || modelName.includes("mixtral")) {
+      modelName = "openai/gpt-oss-20b";
+    }
 
     if (!apiKey) {
       console.error(`[Vercel Serverless Error] GROQ_API_KEY is missing from environment variables!`);

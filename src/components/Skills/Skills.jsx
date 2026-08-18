@@ -134,7 +134,7 @@ const SkillsInfo = [
       },
       {
         name: "Vercel",
-        icon: <SiVercel className="text-black w-6 h-6 sm:w-8 sm:h-8" />,
+        icon: <SiVercel className="text-white w-6 h-6 sm:w-8 sm:h-8" />,
       },
       {
         name: "Netlify",

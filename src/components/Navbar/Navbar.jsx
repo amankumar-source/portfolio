@@ -17,7 +17,10 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 px-6 sm:px-10 md:px-20 bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md">
       <div className="flex justify-between items-center py-5 text-white">
         {/* Logo */}
-        <span className="text-xl font-bold tracking-wide cursor-pointer">
+        <span
+          onClick={() => handleScroll("home")}
+          className="text-xl font-bold tracking-wide cursor-pointer hover:opacity-90 transition-opacity"
+        >
           <span className="text-[#8245ec]">&lt;</span>
           Portfolio
           <span className="text-[#8245ec]">&gt;</span>

@@ -109,22 +109,41 @@ const ProjectCard = memo(function ProjectCard({
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
-                <a
-                  href={demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center py-3 rounded-xl font-semibold text-base sm:text-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md hover:brightness-125 hover:scale-105 transition-transform duration-300"
-                >
-                  🚀 Demo
-                </a>
-                <a
-                  href={codeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center py-3 rounded-xl font-semibold text-base sm:text-lg bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-md hover:brightness-125 hover:scale-105 transition-transform duration-300"
-                >
-                  💻 Code
-                </a>
+                {demoLink && demoLink !== "#" ? (
+                  <a
+                    href={demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center py-3 rounded-xl font-semibold text-base sm:text-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md hover:brightness-125 hover:scale-105 transition-transform duration-300"
+                  >
+                    🚀 Demo
+                  </a>
+                ) : (
+                  <button
+                    disabled
+                    className="flex-1 text-center py-3 rounded-xl font-semibold text-base sm:text-lg bg-gray-800 text-gray-400 border border-gray-700 cursor-not-allowed opacity-70"
+                  >
+                    🚀 Demo (Coming Soon)
+                  </button>
+                )}
+
+                {codeLink && codeLink !== "#" ? (
+                  <a
+                    href={codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center py-3 rounded-xl font-semibold text-base sm:text-lg bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-md hover:brightness-125 hover:scale-105 transition-transform duration-300"
+                  >
+                    💻 Code
+                  </a>
+                ) : (
+                  <button
+                    disabled
+                    className="flex-1 text-center py-3 rounded-xl font-semibold text-base sm:text-lg bg-gray-800 text-gray-400 border border-gray-700 cursor-not-allowed opacity-70"
+                  >
+                    💻 Code (Internal)
+                  </button>
+                )}
               </div>
             </div>
           </div>,

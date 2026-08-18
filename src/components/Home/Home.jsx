@@ -14,7 +14,7 @@ const Home = ({ onOpenChat }) => {
       id="home"
       className="min-h-screen text-white flex flex-col-reverse md:flex-row w-full 
       justify-center md:justify-between items-center 
-      px-4 sm:px-8 md:px-12 lg:px-20 pt-16 md:pt-20 gap-6 md:gap-8"
+      px-4 sm:px-8 md:px-12 lg:px-20 pt-24 sm:pt-28 md:pt-24 lg:pt-28 pb-12 gap-8 md:gap-8 overflow-hidden"
     >
       {/* Left Content — explicit md width for iPad */}
       <div className="w-full md:w-[55%] lg:w-3/5 text-center md:text-left flex flex-col justify-center">
@@ -36,7 +36,7 @@ const Home = ({ onOpenChat }) => {
             onClick={openModal}
             className="w-full sm:w-auto px-6 md:px-7 py-2.5 rounded-full 
             bg-indigo-600 text-white font-semibold 
-            hover:bg-indigo-500 transition duration-300 shadow-md cursor-pointer"
+            hover:bg-indigo-500 transition duration-300 shadow-md cursor-pointer active:scale-95"
           >
             Download CV
           </button>
@@ -45,7 +45,7 @@ const Home = ({ onOpenChat }) => {
             href="mailto:ar1075840@gmail.com"
             className="w-full sm:w-auto px-6 md:px-7 py-2.5 rounded-full 
             border border-gray-500 text-gray-200 font-semibold 
-            hover:bg-white hover:text-black transition duration-300 text-center cursor-pointer"
+            hover:bg-white hover:text-black transition duration-300 text-center cursor-pointer active:scale-95"
           >
             Contact Me
           </a>
@@ -57,7 +57,7 @@ const Home = ({ onOpenChat }) => {
             bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500
             border border-purple-400/50 
             text-white font-semibold transition-all duration-300 
-            animate-ai-pulse cursor-pointer shadow-[0_0_22px_rgba(130,69,236,0.6)] hover:scale-105"
+            animate-ai-pulse cursor-pointer shadow-[0_0_22px_rgba(130,69,236,0.6)] hover:scale-105 active:scale-95"
           >
             <Sparkles className="w-4 h-4 text-purple-200 animate-spin-slow" />
             <span>Ask Me AI</span>
@@ -69,31 +69,32 @@ const Home = ({ onOpenChat }) => {
       </div>
 
       {/* Right Image — proportional sizes for each breakpoint */}
-      <div className="flex justify-center md:justify-end w-full md:w-auto flex-shrink-0">
+      <div className="flex justify-center md:justify-end w-full md:w-auto flex-shrink-0 mt-2 sm:mt-0">
         <div
           className="relative 
-          w-36 h-36 
-          sm:w-48 sm:h-48 
-          md:w-52 md:h-52 
+          w-40 h-40 
+          sm:w-52 sm:h-52 
+          md:w-60 md:h-60 
           lg:w-[22rem] lg:h-[22rem]
-          xl:w-[26rem] xl:h-[26rem]"
+          xl:w-[26rem] xl:h-[26rem]
+          aspect-square"
         >
-          {/* Soft outer glow (tablet+ only) */}
-          <div className="hidden md:block absolute inset-0 rounded-full 
-          bg-gradient-to-br from-indigo-500/40 to-purple-600/40 
-          blur-3xl opacity-40"></div>
-
-          {/* Gradient ring */}
+          {/* Soft outer glow */}
           <div className="absolute inset-0 rounded-full 
-          bg-gradient-to-br from-indigo-500 to-purple-600 p-[3px]">
+          bg-gradient-to-br from-indigo-500/40 to-purple-600/40 
+          blur-2xl md:blur-3xl opacity-50"></div>
+
+          {/* Outer Gradient border ring */}
+          <div className="relative w-full h-full rounded-full 
+          bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-[3px] shadow-2xl overflow-hidden">
             {/* Inner dark ring */}
-            <div className="w-full h-full rounded-full bg-[#0f172a] p-[5px] md:p-[6px]">
+            <div className="w-full h-full rounded-full bg-[#0f172a] p-1 sm:p-1.5 overflow-hidden flex items-center justify-center">
               {/* Image */}
               <img
                 src={profileImg}
                 alt="Aman Kumar profile"
-                className="w-full h-full rounded-full object-cover 
-                shadow-2xl transition duration-500 hover:scale-[1.02]"
+                className="w-full h-full rounded-full object-cover object-top 
+                transition duration-500 hover:scale-[1.03] select-none"
               />
             </div>
           </div>
